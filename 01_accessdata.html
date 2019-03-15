@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<script src="http://maps.google.com/maps/api/js?key=AIzaSyARxs_0QWBQzZ-7tnFIkcz6Tzh5Fr1I0xg"></script>
+<div id="map" style="width:1024px; height:768px"></div>
+
+<script>
+const url = 'https://api-v3.mbta.com/vehicles?api_key=7b4d0b0cae4146da93cbe785936db9ff&filter[route]=1&include=trip';	
+var data = null;
+async function getBusLocations(){
+	const res = await fetch(url);
+	var data = await res.json();
+	console.log(JSON.stringify(data.data[0]));
+}
+getBusLocations();
+// getBusLocations().then(function(data){
+// 	var buses = data.data;
+// });
+// setInterval(getBusLocations, 1500);
+</script>
+
+</html>
